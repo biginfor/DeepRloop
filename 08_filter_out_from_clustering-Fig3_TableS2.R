@@ -39,7 +39,7 @@ get_scores<-function(x){
   #information entropy
   groups_count<-as.numeric(table(ids_sta$groups))
   if(length(groups_count)<4){
-    groups_count<-c(groups_count,rep(1e-4))
+    groups_count<-c(groups_count,rep(1e-20,4-length(groups_count)))
   }
   p_i <-groups_count/sum(groups_count)
   entropy <- (-sum(p_i * log2(p_i)))
